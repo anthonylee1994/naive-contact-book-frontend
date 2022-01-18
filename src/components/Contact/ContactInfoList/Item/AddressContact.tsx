@@ -17,7 +17,7 @@ export const AddressContact = React.memo<Props>(({ address }) => {
       }
     >
       <Icon color="red.400" fontSize="2xl" as={FaMap} />
-      <Text fontSize="sm" whiteSpace="break-spaces" ml={4}>
+      <Text whiteSpace="break-spaces" ml={4}>
         {address}
       </Text>
     </Container>
