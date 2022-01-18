@@ -9,10 +9,10 @@ import {
   InputGroup,
   InputLeftElement,
 } from "@chakra-ui/react";
-import { FaKey } from "react-icons/fa";
-import { useSignInFormStore } from "../../stores/useSignInFormStore";
 import { isEmpty } from "lodash";
-import { useAuthStore } from "../../../../stores/useAuthStore";
+import { FaKey } from "react-icons/fa";
+import { useAuthStore } from "stores/useAuthStore";
+import { useSignInFormStore } from "pages/sign-in/stores/useSignInFormStore";
 
 export const SignInForm = React.memo(() => {
   const privateKey = useSignInFormStore((state) => state.privateKey);

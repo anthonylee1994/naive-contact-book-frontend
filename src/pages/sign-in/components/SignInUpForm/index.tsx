@@ -1,9 +1,9 @@
 import React from "react";
 import { Tabs, TabList, TabPanels, TabPanel } from "@chakra-ui/react";
-import { Tab } from "./Tab";
-import { useSignInUpStore } from "../../stores/useSignInUpStore";
-import { SignUpForm } from "./SignUpForm";
-import { SignInForm } from "./SignInForm";
+import { Tab } from "pages/sign-in/components/SignInUpForm/Tab";
+import { useSignInUpStore } from "pages/sign-in/stores/useSignInUpStore";
+import { SignUpForm } from "pages/sign-in/components/SignInUpForm/SignUpForm";
+import { SignInForm } from "pages/sign-in/components/SignInUpForm/SignInForm";
 
 export const SignInUpForm = React.memo(() => {
   const tabIndex = useSignInUpStore((state) => state.tabIndex);

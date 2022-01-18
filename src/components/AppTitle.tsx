@@ -1,9 +1,17 @@
 import React from "react";
-import { Text, TextProps } from "@chakra-ui/react";
+import { Icon, Text, TextProps } from "@chakra-ui/react";
+import { RiContactsBook2Fill } from "react-icons/ri";
 
 export const AppTitle = React.memo((props: TextProps) => {
   return (
-    <Text fontWeight="bold" fontSize="4xl" {...props}>
+    <Text
+      d="flex"
+      alignItems="center"
+      fontWeight="bold"
+      fontSize="3xl"
+      {...props}
+    >
+      <Icon as={RiContactsBook2Fill} mr={2} />
       Naive Contact
     </Text>
   );

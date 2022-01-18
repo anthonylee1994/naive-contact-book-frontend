@@ -24,6 +24,31 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 /**
  * 
  * @export
+ * @interface FriendshipsTags
+ */
+export interface FriendshipsTags {
+    /**
+     * Tag Value
+     * @type {string}
+     * @memberof FriendshipsTags
+     */
+    'value'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof FriendshipsTags
+     */
+    'created_at'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof FriendshipsTags
+     */
+    'updated_at'?: string;
+}
+/**
+ * 
+ * @export
  * @interface FriendshipsTagsAttributes
  */
 export interface FriendshipsTagsAttributes {
@@ -52,6 +77,12 @@ export interface FriendshipsTagsAttributes {
  * @interface FriendshipsTarget
  */
 export interface FriendshipsTarget {
+    /**
+     * 
+     * @type {number}
+     * @memberof FriendshipsTarget
+     */
+    'id'?: number;
     /**
      * 
      * @type {string}
@@ -139,6 +170,12 @@ export interface FriendshipsTargetUserContacts {
      */
     'id'?: number;
     /**
+     * Display Order
+     * @type {number}
+     * @memberof FriendshipsTargetUserContacts
+     */
+    'display_order'?: number;
+    /**
      * Contact Type
      * @type {string}
      * @memberof FriendshipsTargetUserContacts
@@ -221,6 +258,12 @@ export interface InlineObject2 {
  */
 export interface InlineResponse200 {
     /**
+     * 
+     * @type {number}
+     * @memberof InlineResponse200
+     */
+    'id'?: number;
+    /**
      * User ID
      * @type {number}
      * @memberof InlineResponse200
@@ -246,6 +289,12 @@ export interface InlineResponse200 {
     'updated_at'?: string;
     /**
      * 
+     * @type {Array<FriendshipsTags>}
+     * @memberof InlineResponse200
+     */
+    'tags'?: Array<FriendshipsTags>;
+    /**
+     * 
      * @type {FriendshipsTarget}
      * @memberof InlineResponse200
      */
@@ -257,6 +306,12 @@ export interface InlineResponse200 {
  * @interface InlineResponse201
  */
 export interface InlineResponse201 {
+    /**
+     * 
+     * @type {number}
+     * @memberof InlineResponse201
+     */
+    'id'?: number;
     /**
      * 
      * @type {string}
@@ -835,7 +890,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async friendshipsIdGet(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<InlineResponse200>>> {
+        async friendshipsIdGet(id: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse200>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.friendshipsIdGet(id, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -847,7 +902,7 @@ export const DefaultApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async friendshipsIdPut(id: number, inlineObject2?: InlineObject2, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<InlineResponse200>>> {
+        async friendshipsIdPut(id: number, inlineObject2?: InlineObject2, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InlineResponse200>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.friendshipsIdPut(id, inlineObject2, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -967,7 +1022,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        friendshipsIdGet(id: number, options?: any): AxiosPromise<Array<InlineResponse200>> {
+        friendshipsIdGet(id: number, options?: any): AxiosPromise<InlineResponse200> {
             return localVarFp.friendshipsIdGet(id, options).then((request) => request(axios, basePath));
         },
         /**
@@ -978,7 +1033,7 @@ export const DefaultApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        friendshipsIdPut(id: number, inlineObject2?: InlineObject2, options?: any): AxiosPromise<Array<InlineResponse200>> {
+        friendshipsIdPut(id: number, inlineObject2?: InlineObject2, options?: any): AxiosPromise<InlineResponse200> {
             return localVarFp.friendshipsIdPut(id, inlineObject2, options).then((request) => request(axios, basePath));
         },
         /**

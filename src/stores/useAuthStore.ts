@@ -1,7 +1,7 @@
 import create from "zustand";
-import { InlineResponse201 } from "../api";
-import { apiClient } from "../utils/apiClient";
-import { browserHistory } from "../utils/browserHistory";
+import { InlineResponse201 } from "api";
+import { apiClient } from "utils/apiClient";
+import { browserHistory } from "utils/browserHistory";
 
 interface AuthStore {
   isSignUpError: boolean;
@@ -12,6 +12,7 @@ interface AuthStore {
   signIn: (privateKey: string) => void;
   signOut: () => void;
   checkAuth: () => void;
+  setUser: (user: InlineResponse201) => void;
 }
 
 export const useAuthStore = create<AuthStore>((set) => ({
@@ -19,7 +20,9 @@ export const useAuthStore = create<AuthStore>((set) => ({
   isSignUpError: false,
   isSignInError: false,
   user: null,
-
+  setUser(user: InlineResponse201) {
+    set({ user });
+  },
   async signUp(name, avatarFile) {
     try {
       set({ isSigning: true });

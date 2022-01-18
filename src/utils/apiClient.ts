@@ -1,4 +1,4 @@
-import { DefaultApi } from "../api";
+import { DefaultApi } from "api";
 import axios from "axios";
 
 axios.interceptors.request.use(
@@ -16,6 +16,10 @@ axios.interceptors.request.use(
     Promise.reject(error);
   }
 );
+
+axios.defaults.baseURL = process.env.REACT_APP_API_BASE_PATH;
+
+export const apiClientAxios = axios;
 
 export const apiClient = new DefaultApi(
   undefined,

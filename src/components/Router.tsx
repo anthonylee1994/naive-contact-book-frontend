@@ -1,6 +1,6 @@
 import React from "react";
-import { Router as RouterBase } from "react-router-dom";
 import { BrowserHistory } from "history";
+import { Router as RouterBase } from "react-router-dom";
 
 interface Props {
   history: BrowserHistory;

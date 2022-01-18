@@ -1,5 +1,5 @@
 import create from "zustand";
-import { useAuthStore } from "../../../stores/useAuthStore";
+import { useAuthStore } from "stores/useAuthStore";
 
 interface SignUpFormStore {
   name: string;

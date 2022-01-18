@@ -7,10 +7,10 @@ import {
   InputGroup,
   InputLeftElement,
 } from "@chakra-ui/react";
-import { FaUser } from "react-icons/fa";
-import { useSignUpFormStore } from "../../stores/useSignUpFormStore";
 import { isEmpty } from "lodash";
-import { useAuthStore } from "../../../../stores/useAuthStore";
+import { FaUser } from "react-icons/fa";
+import { useSignUpFormStore } from "pages/sign-in/stores/useSignUpFormStore";
+import { useAuthStore } from "stores/useAuthStore";
 
 export const SignUpForm = React.memo(() => {
   const name = useSignUpFormStore((state) => state.name);

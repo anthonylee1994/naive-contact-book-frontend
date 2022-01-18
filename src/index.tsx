@@ -1,13 +1,13 @@
 import React from "react";
+import { App } from "app";
 import ReactDOM from "react-dom";
-import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
-import reportWebVitals from "./reportWebVitals";
+import * as serviceWorkerRegistration from "serviceWorkerRegistration";
+import reportWebVitals from "reportWebVitals";
 import { ChakraProvider } from "@chakra-ui/react";
-import { App } from "./app";
-import { chakraTheme } from "./utils/chakraTheme";
-import "./index.css";
-import { browserHistory } from "./utils/browserHistory";
-import { Router } from "./components/Router";
+import { chakraTheme } from "utils/chakraTheme";
+import { browserHistory } from "utils/browserHistory";
+import { Router } from "components/Router";
+import "index.css";
 
 ReactDOM.render(
   <React.StrictMode>

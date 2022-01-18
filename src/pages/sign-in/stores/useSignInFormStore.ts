@@ -1,5 +1,5 @@
 import create from "zustand";
-import { useAuthStore } from "../../../stores/useAuthStore";
+import { useAuthStore } from "stores/useAuthStore";
 
 interface SignInFormStore {
   privateKey: string;
@@ -8,7 +8,7 @@ interface SignInFormStore {
 }
 
 export const useSignInFormStore = create<SignInFormStore>((set, get) => ({
-  privateKey: "",
+  privateKey: "2f634967ee572fb7561e0ecf47c054e0",
   setPrivateKey: (privateKey: string) => {
     set({ privateKey });
   },
