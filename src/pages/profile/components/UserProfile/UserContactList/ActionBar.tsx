@@ -2,6 +2,7 @@ import React from "react";
 import { Flex, IconButton, Icon } from "@chakra-ui/react";
 import { FriendshipsTargetUserContacts } from "api";
 import { FaArrowUp, FaArrowDown, FaTrash } from "react-icons/fa";
+import { useProfileStore } from "stores/useProfileStore";
 
 interface Props {
   item: FriendshipsTargetUserContacts;
@@ -13,6 +14,10 @@ interface Props {
 }
 
 export const ActionBar = React.memo<Props>(({ setItems, index, total }) => {
+  const updatingUserContacts = useProfileStore(
+    (state) => state.updatingUserContacts
+  );
+
   const onMoveUp = React.useCallback(() => {
     setItems((items) => {
       const newItems = [...items];
@@ -48,7 +53,7 @@ export const ActionBar = React.memo<Props>(({ setItems, index, total }) => {
           m={1}
           size="sm"
           aria-label="up"
-          disabled={index === 0}
+          disabled={index === 0 || updatingUserContacts}
           icon={<Icon as={FaArrowUp} />}
           onClick={onMoveUp}
         />
@@ -56,12 +61,13 @@ export const ActionBar = React.memo<Props>(({ setItems, index, total }) => {
           m={1}
           size="sm"
           aria-label="down"
-          disabled={index === total - 1}
+          disabled={index === total - 1 || updatingUserContacts}
           icon={<Icon as={FaArrowDown} />}
           onClick={onMoveDown}
         />
       </Flex>
       <IconButton
+        disabled={updatingUserContacts}
         ml={2}
         mr={1}
         size="sm"

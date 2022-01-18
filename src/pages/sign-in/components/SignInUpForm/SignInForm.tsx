@@ -21,8 +21,6 @@ export const SignInForm = React.memo(() => {
   const isSigning = useAuthStore((state) => state.isSigning);
   const isSignInError = useAuthStore((state) => state.isSignInError);
 
-  // 2f634967ee572fb7561e0ecf47c054e0
-
   return (
     <Flex flexDirection="column">
       <form onSubmit={onSubmit}>

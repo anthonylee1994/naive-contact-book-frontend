@@ -15,14 +15,14 @@ export const ProfileName = React.memo(() => {
       <Text
         wordBreak="break-all"
         whiteSpace="break-spaces"
-        mr={1}
-        fontSize="2xl"
+        fontSize={{ base: "2xl", md: "3xl" }}
         textAlign="center"
       >
         {name}
       </Text>
       <Button
-        mt={2}
+        mt={{ base: 2, md: 3 }}
+        mb={{ base: 0, md: 1 }}
         size="sm"
         variant="solid"
         leftIcon={<Icon as={FaPen} />}

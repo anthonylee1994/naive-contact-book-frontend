@@ -15,6 +15,7 @@ export const DrawerItem = React.memo<Props>(({ icon, label, onClick }) => {
       pb={4}
       pl={8}
       pr={8}
+      _first={{ borderTopRadius: { base: 0, md: "md" } }}
       userSelect="none"
       cursor="pointer"
       alignItems="center"

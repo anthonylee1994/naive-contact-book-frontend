@@ -1,4 +1,4 @@
-import { Icon, IconButton } from "@chakra-ui/react";
+import { Icon, IconButton, useBreakpointValue } from "@chakra-ui/react";
 import { ShareContactModal } from "components/ShareContactModal";
 import React from "react";
 import { FaQrcode } from "react-icons/fa";
@@ -7,6 +7,7 @@ import { useShareContactStore } from "stores/useShareContactStore";
 
 export const ShareButton = React.memo(() => {
   const { pathname } = useLocation();
+  const size = useBreakpointValue({ base: "md", md: "lg" });
   const openModal = useShareContactStore((state) => state.openModal);
 
   if (!pathname.startsWith("/profile")) {
@@ -16,6 +17,7 @@ export const ShareButton = React.memo(() => {
   return (
     <React.Fragment>
       <IconButton
+        size={size}
         aria-label="back"
         position="fixed"
         variant="outline"

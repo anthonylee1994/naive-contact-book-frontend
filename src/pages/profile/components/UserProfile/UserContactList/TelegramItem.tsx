@@ -4,6 +4,7 @@ import { Container } from "./Container";
 import { FaTelegram } from "react-icons/fa";
 import { FriendshipsTargetUserContacts } from "api";
 import { ActionBar } from "./ActionBar";
+import { useProfileStore } from "stores/useProfileStore";
 
 interface Props {
   index: number;
@@ -17,6 +18,9 @@ interface Props {
 export const TelegramItem = React.memo<Props>(
   ({ item, setItems, index, total }) => {
     const value = item?.contact?.username ?? "";
+    const updatingUserContacts = useProfileStore(
+      (state) => state.updatingUserContacts
+    );
 
     const onChange: React.ChangeEventHandler<HTMLInputElement> =
       React.useCallback(
@@ -47,6 +51,7 @@ export const TelegramItem = React.memo<Props>(
             as={FaTelegram}
           />
           <Input
+            disabled={updatingUserContacts}
             mt={1}
             ml={1}
             mr={1}

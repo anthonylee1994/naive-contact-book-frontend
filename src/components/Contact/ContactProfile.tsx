@@ -22,7 +22,7 @@ export const ContactProfile = React.memo<Props>(({ friendship }) => {
   const userContacts = friendship.target?.user_contacts ?? [];
 
   return (
-    <Flex flexDirection="column" alignItems="center">
+    <Flex margin="0 auto" maxW={600} flexDirection="column" alignItems="center">
       <ContactAvatar src={avatarUrl} />
       <ContactName name={name} />
       <EditableContactTags tags={tags} />

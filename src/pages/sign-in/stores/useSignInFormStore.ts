@@ -8,7 +8,7 @@ interface SignInFormStore {
 }
 
 export const useSignInFormStore = create<SignInFormStore>((set, get) => ({
-  privateKey: "2f634967ee572fb7561e0ecf47c054e0",
+  privateKey: "",
   setPrivateKey: (privateKey: string) => {
     set({ privateKey });
   },

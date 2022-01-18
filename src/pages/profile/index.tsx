@@ -11,7 +11,7 @@ export const Profile = React.memo(() => {
   }
 
   return (
-    <Container>
+    <Container maxW={600} margin="0 auto">
       <UserProfile />
     </Container>
   );

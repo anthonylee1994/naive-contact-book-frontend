@@ -4,15 +4,18 @@ import {
   Avatar as AvatarBase,
   ImageProps,
   AvatarProps,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 
 export const Avatar = React.memo<ImageProps>((props) => {
+  const size = useBreakpointValue({ base: "48px", md: "64px" });
+
   if (!props.src) {
     return (
       <AvatarBase
         bgColor="gray.600"
-        width="48px"
-        height="48px"
+        width={size}
+        height={size}
         {...(props as AvatarProps)}
       />
     );
@@ -22,8 +25,8 @@ export const Avatar = React.memo<ImageProps>((props) => {
     <Image
       bgColor="gray.600"
       borderRadius="full"
-      width="48px"
-      height="48px"
+      width={size}
+      height={size}
       {...props}
     />
   );

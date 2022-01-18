@@ -4,6 +4,7 @@ import { Container } from "./Container";
 import { FaMap } from "react-icons/fa";
 import { FriendshipsTargetUserContacts } from "api";
 import { ActionBar } from "./ActionBar";
+import { useProfileStore } from "stores/useProfileStore";
 
 interface Props {
   index: number;
@@ -17,6 +18,9 @@ interface Props {
 export const AddressItem = React.memo<Props>(
   ({ item, setItems, index, total }) => {
     const value = item?.contact?.address ?? "";
+    const updatingUserContacts = useProfileStore(
+      (state) => state.updatingUserContacts
+    );
 
     const onChange: React.ChangeEventHandler<HTMLTextAreaElement> =
       React.useCallback(
@@ -41,6 +45,7 @@ export const AddressItem = React.memo<Props>(
         <Flex w="full" alignItems="center">
           <Icon color="red.400" ml={2} mr={2} fontSize="2xl" as={FaMap} />
           <Textarea
+            disabled={updatingUserContacts}
             value={value}
             onChange={onChange}
             rows={5}

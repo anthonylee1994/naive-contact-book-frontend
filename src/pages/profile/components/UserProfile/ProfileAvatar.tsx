@@ -5,6 +5,7 @@ import {
   Flex,
   Icon,
   IconButton,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import { ContactAvatar } from "components/Contact/ContactAvatar";
 import { DrawerItem } from "components/DrawerItem";
@@ -20,16 +21,18 @@ export const ProfileAvatar = React.memo(() => {
   const uploadAvatar = useProfileStore((state) => state.uploadAvatar);
   const inputRef = React.useRef<HTMLInputElement>(null);
   const avatarUrl = useAuthStore((state) => state.user?.avatar_url);
+  const iconButtonSize = useBreakpointValue({ base: "md", md: "lg" });
 
   return (
     <Flex position="relative">
       <ContactAvatar src={avatarUrl} />
       <IconButton
+        size={iconButtonSize}
         variant="solid"
         borderRadius="full"
         position="absolute"
-        bottom={2}
-        right={2}
+        bottom={{ base: 2, md: 4 }}
+        right={{ base: 2, md: 4 }}
         aria-label="edit"
         icon={<Icon as={avatarUrl ? FaEdit : FaUpload} />}
         ref={btnRef}
@@ -61,7 +64,11 @@ export const ProfileAvatar = React.memo(() => {
         finalFocusRef={btnRef}
       >
         <DrawerOverlay />
-        <DrawerContent>
+        <DrawerContent
+          margin="0 auto"
+          w={{ base: "full", md: 300 }}
+          borderTopRadius={{ base: 0, md: "md" }}
+        >
           <DrawerItem
             icon={FaUpload}
             label="Upload"

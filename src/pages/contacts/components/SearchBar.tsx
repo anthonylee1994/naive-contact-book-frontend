@@ -31,8 +31,9 @@ export const SearchBar = React.memo(() => {
       position="fixed"
       p={2}
       boxShadow="0 0 10px 0 rgba(0,0,0,0.5)"
+      justifyContent="center"
     >
-      <InputGroup size="md">
+      <InputGroup size="md" maxW={600}>
         <InputLeftElement width="3rem">
           <Button
             h="1.75rem"

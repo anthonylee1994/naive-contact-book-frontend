@@ -4,6 +4,7 @@ import { Container } from "./Container";
 import { FaWhatsapp } from "react-icons/fa";
 import { FriendshipsTargetUserContacts } from "api";
 import { ActionBar } from "./ActionBar";
+import { useProfileStore } from "stores/useProfileStore";
 
 interface Props {
   index: number;
@@ -16,6 +17,10 @@ interface Props {
 
 export const WhatsAppItem = React.memo<Props>(
   ({ item, setItems, index, total }) => {
+    const updatingUserContacts = useProfileStore(
+      (state) => state.updatingUserContacts
+    );
+
     const value = item?.contact?.phone_number ?? "";
 
     const onChange: React.ChangeEventHandler<HTMLInputElement> =
@@ -47,6 +52,7 @@ export const WhatsAppItem = React.memo<Props>(
             as={FaWhatsapp}
           />
           <Input
+            disabled={updatingUserContacts}
             mt={1}
             ml={1}
             mr={1}

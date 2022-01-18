@@ -20,17 +20,22 @@ export const ContactItem = React.memo<Props>(({ item }) => {
 
   return (
     <Flex
-      p={2}
+      p={{ base: 3, md: 4 }}
       alignItems="center"
       borderBottomWidth={1}
       borderBottomStyle="solid"
       transition="100ms ease-in-out"
       _active={{ bgColor: "gray.700" }}
       onClick={() => navigate(`/contacts/${item.id}`)}
+      maxW={600}
+      w="full"
+      m="0 auto"
+      cursor="pointer"
+      userSelect="none"
     >
       <Avatar mr={3} src={avatarUrl} />
       <Flex flexDirection="column">
-        <Text fontSize="lg" mb={1}>
+        <Text fontSize={{ base: "lg", md: "xl" }} mb={1}>
           {name}
         </Text>
         <Flex flexWrap="wrap">

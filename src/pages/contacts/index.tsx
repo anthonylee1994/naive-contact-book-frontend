@@ -32,6 +32,7 @@ export const Contacts = React.memo(() => {
             alignItems="center"
             justifyContent="center"
             color="gray.400"
+            fontSize={{ base: "md", md: "lg" }}
           >
             No Content
           </Text>

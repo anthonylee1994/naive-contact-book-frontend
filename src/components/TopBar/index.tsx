@@ -8,7 +8,8 @@ import { LogoutButton } from "./LogoutButton";
 export const TopBar = React.memo(() => {
   return (
     <Flex
-      p={3}
+      userSelect="none"
+      p={{ base: 3, md: 4 }}
       top={0}
       zIndex={2}
       d="flex"
@@ -23,8 +24,8 @@ export const TopBar = React.memo(() => {
       <BackButton />
       <ShareButton />
       <Flex alignItems="center">
-        <Icon fontSize="2xl" as={RiContactsBook2Fill} mr={1} />
-        <Text fontWeight="bold" fontSize="xl">
+        <Icon fontSize="2xl" as={RiContactsBook2Fill} mr={{ base: 1, md: 2 }} />
+        <Text fontWeight="bold" fontSize={{ base: "xl", md: "2xl" }}>
           Naive Contact
         </Text>
       </Flex>

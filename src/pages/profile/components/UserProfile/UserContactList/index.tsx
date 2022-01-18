@@ -10,6 +10,9 @@ import { useProfileStore } from "stores/useProfileStore";
 export const UserContactList = React.memo(() => {
   const userContacts = useAuthStore((state) => state.user?.user_contacts ?? []);
   const editMode = useProfileStore((state) => state.editMode);
+  const updatingUserContacts = useProfileStore(
+    (state) => state.updatingUserContacts
+  );
   const updateUserContacts = useProfileStore(
     (state) => state.updateUserContacts
   );
@@ -38,6 +41,7 @@ export const UserContactList = React.memo(() => {
         ))}
         <Flex flexDirection="column" width="full" pt={2} pl={0} pr={0} pb={4}>
           <Button
+            disabled={updatingUserContacts}
             mb={3}
             variant="solid"
             width="full"
@@ -56,6 +60,7 @@ export const UserContactList = React.memo(() => {
             Add Contact
           </Button>
           <Button
+            isLoading={updatingUserContacts}
             variant="ghost"
             width="full"
             leftIcon={<Icon as={FaSave} />}

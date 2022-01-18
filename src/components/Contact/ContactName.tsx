@@ -6,5 +6,9 @@ interface Props {
 }
 
 export const ContactName = React.memo<Props>(({ name }) => {
-  return <Text fontSize="2xl">{name}</Text>;
+  return (
+    <Text m={{ base: 0, md: 2 }} fontSize={{ base: "2xl", md: "3xl" }}>
+      {name}
+    </Text>
+  );
 });

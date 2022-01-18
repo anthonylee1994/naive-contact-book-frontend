@@ -36,6 +36,7 @@ export const BottomBar = React.memo(() => {
     >
       <Tabs
         index={tabIndex}
+        align="center"
         w="100%"
         isFitted
         variant="line"
