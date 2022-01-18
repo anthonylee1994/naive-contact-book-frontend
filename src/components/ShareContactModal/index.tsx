@@ -8,6 +8,7 @@ import {
   TabPanel,
   TabPanels,
   Tabs,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import React from "react";
 import { useShareContactStore } from "stores/useShareContactStore";
@@ -15,6 +16,7 @@ import { MyQRCode } from "./MyQRCode";
 import { QRCodeScanner } from "./QRCodeScanner";
 
 export const ShareContactModal = React.memo(() => {
+  const size = useBreakpointValue({ base: "md", md: "lg" });
   const modalVisible = useShareContactStore((state) => state.modalVisible);
   const closeModal = useShareContactStore((state) => state.closeModal);
 
@@ -23,7 +25,7 @@ export const ShareContactModal = React.memo(() => {
       <ModalOverlay />
       <ModalContent>
         <ModalBody p={0}>
-          <Tabs isLazy colorScheme="green" isFitted width="full">
+          <Tabs size={size} isLazy colorScheme="green" isFitted width="full">
             <TabList>
               <Tab borderTopLeftRadius="md" _focus={{}}>
                 Share Me

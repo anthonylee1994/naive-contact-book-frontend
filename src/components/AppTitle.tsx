@@ -8,7 +8,7 @@ export const AppTitle = React.memo((props: TextProps) => {
       d="flex"
       alignItems="center"
       fontWeight="bold"
-      fontSize="3xl"
+      fontSize={{ base: "3xl", md: "4xl" }}
       {...props}
     >
       <Icon as={RiContactsBook2Fill} mr={2} />

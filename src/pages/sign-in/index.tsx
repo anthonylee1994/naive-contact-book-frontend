@@ -6,7 +6,7 @@ import { SignInUpForm } from "pages/sign-in/components/SignInUpForm";
 export const SignIn = React.memo(() => {
   return (
     <AppLayout>
-      <AppTitle mb={8} />
+      <AppTitle mb={{ base: 8, md: 12 }} />
       <SignInUpForm />
     </AppLayout>
   );

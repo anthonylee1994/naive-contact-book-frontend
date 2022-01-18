@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, CircularProgress, Flex, Text } from "@chakra-ui/react";
 import QRCode from "react-qr-code";
 import { useShareContactStore } from "stores/useShareContactStore";
 
@@ -30,6 +30,12 @@ export const MyQRCode = React.memo(() => {
         <Box bgColor="white" p={2} borderRadius="md">
           <QRCode size={128} value={qrCodeValue} />
         </Box>
+      ) : !fetched ? (
+        <CircularProgress
+          trackColor="transparent"
+          color="green.500"
+          isIndeterminate
+        />
       ) : undefined}
       <Text mt={4} mb={1}>
         Ask your friend to scan
