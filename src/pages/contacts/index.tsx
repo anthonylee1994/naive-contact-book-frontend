@@ -19,7 +19,7 @@ export const Contacts = React.memo(() => {
   return (
     <Container>
       <SearchBar />
-      <Flex mt="56px" flexDirection="column" flex={1}>
+      <Flex mt={{ base: "56px", md: "64px" }} flexDirection="column" flex={1}>
         {friends.length ? (
           friends.map((friend, key) => <ContactItem item={friend} key={key} />)
         ) : (

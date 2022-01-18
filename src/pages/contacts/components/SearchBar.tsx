@@ -29,7 +29,7 @@ export const SearchBar = React.memo(() => {
       bgColor="gray.600"
       width="full"
       position="fixed"
-      p={2}
+      p={{ base: 2, md: 3 }}
       boxShadow="0 0 10px 0 rgba(0,0,0,0.5)"
       justifyContent="center"
     >
@@ -46,6 +46,7 @@ export const SearchBar = React.memo(() => {
           </Button>
         </InputLeftElement>
         <Input
+          size="md"
           pl="3rem"
           value={keyword}
           onChange={({ target: { value } }) => {
@@ -65,7 +66,7 @@ export const SearchBar = React.memo(() => {
           zIndex={2}
           isIndeterminate
           w="full"
-          top="56px"
+          top={{ base: "56px", md: "64px" }}
           position="absolute"
           colorScheme="green"
         />
