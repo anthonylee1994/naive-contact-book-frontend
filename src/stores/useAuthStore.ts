@@ -8,7 +8,7 @@ interface AuthStore {
   isSignInError: boolean;
   isSigning: boolean;
   user: InlineResponse201 | null;
-  signUp: (name: string, avatarFile: File | null) => void;
+  signUp: (name: string) => void;
   signIn: (privateKey: string) => void;
   signOut: () => void;
   checkAuth: () => void;
@@ -23,10 +23,10 @@ export const useAuthStore = create<AuthStore>((set) => ({
   setUser(user: InlineResponse201) {
     set({ user });
   },
-  async signUp(name, avatarFile) {
+  async signUp(name) {
     try {
       set({ isSigning: true });
-      const response = await apiClient.signUpPost(name, avatarFile);
+      const response = await apiClient.signUpPost(name);
 
       localStorage.setItem("token", response.data.secret);
 

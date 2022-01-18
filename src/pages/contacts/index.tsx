@@ -3,7 +3,7 @@ import { ContactItem } from "components/Contact/ContactItem";
 import { useFriendListStore } from "stores/useFriendListStore";
 import { Container } from "components/Container";
 import { SearchBar } from "./components/SearchBar";
-import { Flex } from "@chakra-ui/react";
+import { Flex, Text } from "@chakra-ui/react";
 
 export const Contacts = React.memo(() => {
   const friends = useFriendListStore((state) => state.friends);
@@ -20,9 +20,22 @@ export const Contacts = React.memo(() => {
     <Container>
       <SearchBar />
       <Flex mt="56px" flexDirection="column" flex={1}>
-        {friends.map((friend, key) => (
-          <ContactItem item={friend} key={key} />
-        ))}
+        {friends.length ? (
+          friends.map((friend, key) => <ContactItem item={friend} key={key} />)
+        ) : (
+          <Text
+            height="100%"
+            d="flex"
+            flex={1}
+            p={2}
+            width="full"
+            alignItems="center"
+            justifyContent="center"
+            color="gray.400"
+          >
+            No Content
+          </Text>
+        )}
       </Flex>
     </Container>
   );
