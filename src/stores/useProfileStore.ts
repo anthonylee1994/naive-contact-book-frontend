@@ -61,7 +61,9 @@ export const useProfileStore = create<ProfileStore>((set) => ({
         ...contact,
       }));
 
-      const contactsToAdd = newContacts.filter((contact) => !contact.id);
+      const contactsToAdd = newContacts.filter(
+        (contact) => !contact.id && !!contact.contact_type
+      );
 
       const contactIdsToDelete = oldContacts
         .filter((contact) => !newContacts.find((c) => c.id === contact.id))

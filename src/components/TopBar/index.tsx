@@ -2,6 +2,8 @@ import React from "react";
 import { Flex, Icon, Text } from "@chakra-ui/react";
 import { RiContactsBook2Fill } from "react-icons/ri";
 import { BackButton } from "./BackButton";
+import { ShareButton } from "./ShareButton";
+import { LogoutButton } from "./LogoutButton";
 
 export const TopBar = React.memo(() => {
   return (
@@ -17,7 +19,9 @@ export const TopBar = React.memo(() => {
       justifyContent="center"
       boxShadow="0 0 10px 0 rgba(0,0,0,0.5)"
     >
+      <LogoutButton />
       <BackButton />
+      <ShareButton />
       <Flex alignItems="center">
         <Icon fontSize="2xl" as={RiContactsBook2Fill} mr={1} />
         <Text fontWeight="bold" fontSize="xl">

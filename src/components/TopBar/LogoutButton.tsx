@@ -1,13 +1,13 @@
 import { Icon, IconButton } from "@chakra-ui/react";
 import React from "react";
-import { FaArrowLeft } from "react-icons/fa";
+import { FaPowerOff } from "react-icons/fa";
 import { useLocation, useNavigate } from "react-router-dom";
 
-export const BackButton = React.memo(() => {
-  const { pathname } = useLocation();
+export const LogoutButton = React.memo(() => {
   const navigate = useNavigate();
+  const { pathname } = useLocation();
 
-  if (!/^\/contacts\/\d+/.test(pathname)) {
+  if (!pathname.startsWith("/profile")) {
     return null;
   }
 
@@ -17,8 +17,8 @@ export const BackButton = React.memo(() => {
       position="fixed"
       variant="ghost"
       left={2}
-      icon={<Icon as={FaArrowLeft} />}
-      onClick={() => navigate("/contacts")}
+      icon={<Icon as={FaPowerOff} />}
+      onClick={() => navigate("/sign-out")}
     />
   );
 });

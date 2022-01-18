@@ -4,7 +4,8 @@ import { ContactAvatar } from "components/Contact/ContactAvatar";
 import { ContactInfoList } from "components/Contact/ContactInfoList";
 import { ContactName } from "components/Contact/ContactName";
 import React from "react";
-import { ContactTags } from "./ContactTags";
+import { EditableContactTags } from "./EditableContactTags";
+import { UnfriendButton } from "./UnfriendButton";
 
 interface Props {
   friendship?: InlineResponse200 | null;
@@ -17,15 +18,19 @@ export const ContactProfile = React.memo<Props>(({ friendship }) => {
 
   const avatarUrl = friendship.target?.avatar_url;
   const name = friendship.target?.name ?? "";
-  const tags = friendship.tags?.map(({ value }) => value!) ?? [];
+  const tags = friendship.tags ?? [];
   const userContacts = friendship.target?.user_contacts ?? [];
 
   return (
     <Flex flexDirection="column" alignItems="center">
       <ContactAvatar src={avatarUrl} />
       <ContactName name={name} />
-      <ContactTags tags={tags} />
+      <EditableContactTags tags={tags} />
       <ContactInfoList items={userContacts} />
+
+      <Flex width="full" mt={-1} pl={4} pr={4} pb={4}>
+        <UnfriendButton />
+      </Flex>
     </Flex>
   );
 });

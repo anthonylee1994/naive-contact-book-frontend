@@ -26,6 +26,7 @@ export const BottomBar = React.memo(() => {
 
   return (
     <Flex
+      zIndex={2}
       w="100%"
       bottom={0}
       position="fixed"

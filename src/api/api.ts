@@ -28,6 +28,12 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
  */
 export interface FriendshipsTags {
     /**
+     * Tag ID
+     * @type {number}
+     * @memberof FriendshipsTags
+     */
+    'id'?: number;
+    /**
      * Tag Value
      * @type {string}
      * @memberof FriendshipsTags
