@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, CircularProgress, Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, Skeleton, Text } from "@chakra-ui/react";
 import QRCode from "react-qr-code";
 import { useShareContactStore } from "stores/useShareContactStore";
 
@@ -26,17 +26,11 @@ export const MyQRCode = React.memo(() => {
       alignItems="center"
       justifyContent="center"
     >
-      {qrCodeValue && fetched ? (
+      <Skeleton isLoaded={!!qrCodeValue && fetched}>
         <Box bgColor="white" p={2} borderRadius="md">
-          <QRCode size={128} value={qrCodeValue} />
+          <QRCode size={128} value={qrCodeValue ?? ""} />
         </Box>
-      ) : !fetched ? (
-        <CircularProgress
-          trackColor="transparent"
-          color="green.500"
-          isIndeterminate
-        />
-      ) : undefined}
+      </Skeleton>
       <Text mt={4} mb={1}>
         Ask your friend to scan
       </Text>

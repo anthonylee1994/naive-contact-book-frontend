@@ -1,10 +1,14 @@
 import React from "react";
-import "webrtc-adapter";
 import QrReader from "react-qr-reader";
 import { useShareContactStore } from "stores/useShareContactStore";
 
 export const QRCodeScanner = React.memo(() => {
   const addFriend = useShareContactStore((state) => state.addFriend);
+  const modalVisible = useShareContactStore((state) => state.modalVisible);
+
+  if (!modalVisible) {
+    return null;
+  }
 
   return (
     <QrReader

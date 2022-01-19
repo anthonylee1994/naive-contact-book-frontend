@@ -30,7 +30,8 @@ export const useShareContactStore = create<ShareContactStore>((set, get) => ({
     return `${userId};${otpCode}`;
   },
   refetchQRCode: async () => {
-    const response = await apiClientAxios.get(`/me?${new Date().getTime()}`);
+    set({ fetched: false });
+    const response = await apiClientAxios.get(`/me?r=${new Date().getTime()}`);
     set({
       fetched: true,
       otpCode: response.data.otp_code ?? "",
@@ -42,6 +43,10 @@ export const useShareContactStore = create<ShareContactStore>((set, get) => ({
 
     if (targetId === -1) {
       return;
+    }
+
+    if (navigator && navigator.vibrate) {
+      navigator.vibrate(200);
     }
 
     if (targetId === get().userId) {
