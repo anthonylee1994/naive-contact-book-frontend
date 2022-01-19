@@ -49,6 +49,7 @@ export const ProfileAvatar = React.memo(() => {
       <input
         ref={inputRef}
         type="file"
+        accept="image/*"
         hidden
         onChange={(e) => {
           if (e.target.files && e.target.files[0]) {

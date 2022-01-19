@@ -1,4 +1,5 @@
 import React from "react";
+import "webrtc-adapter";
 import QrReader from "react-qr-reader";
 import { useShareContactStore } from "stores/useShareContactStore";
 
@@ -7,7 +8,6 @@ export const QRCodeScanner = React.memo(() => {
 
   return (
     <QrReader
-      showViewFinder
       facingMode="environment"
       onError={(err) => {
         alert(err);

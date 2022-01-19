@@ -29,6 +29,7 @@
     "typescript": "^4.5.4",
     "use-debounce": "^7.0.1",
     "web-vitals": "^0.2.4",
+    "webrtc-adapter": "^8.1.1",
     "workbox-background-sync": "^5.1.4",
     "workbox-broadcast-update": "^5.1.4",
     "workbox-cacheable-response": "^5.1.4",
