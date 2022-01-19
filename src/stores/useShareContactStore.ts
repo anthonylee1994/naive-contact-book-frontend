@@ -59,6 +59,7 @@ export const useShareContactStore = create<ShareContactStore>((set, get) => ({
 
       browserHistory.push(`/contacts/${response.data?.id}`);
     } catch (error) {
+      closeModal();
       browserHistory.push(`/contacts/${targetId}`);
     }
   },
