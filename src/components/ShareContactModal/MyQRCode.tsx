@@ -21,12 +21,12 @@ export const MyQRCode = React.memo(() => {
 
   return (
     <Flex
-      flexDirection="column"
       width="full"
       alignItems="center"
+      flexDirection="column"
       justifyContent="center"
     >
-      <Skeleton isLoaded={!!qrCodeValue && fetched}>
+      <Skeleton borderRadius="md" isLoaded={!!qrCodeValue && fetched}>
         <Box bgColor="white" p={2} borderRadius="md">
           <QRCode size={128} value={qrCodeValue ?? ""} />
         </Box>
