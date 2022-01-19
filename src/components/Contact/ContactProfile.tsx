@@ -29,7 +29,7 @@ export const ContactProfile = React.memo<Props>(({ friendship }) => {
       flexDirection="column"
       alignItems="center"
     >
-      <ContactAvatar src={avatarUrl} isLoaded={!!avatarUrl} />
+      <ContactAvatar src={avatarUrl} isLoaded />
       <ContactName name={name} />
       <EditableContactTags tags={tags} />
       <ContactInfoList items={userContacts} />

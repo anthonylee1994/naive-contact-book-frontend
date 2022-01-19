@@ -59,7 +59,7 @@ export const useShareContactStore = create<ShareContactStore>((set, get) => ({
 
       browserHistory.push(`/contacts/${response.data?.id}`);
     } catch (error) {
-      alert("Could not add friend. Please try again.");
+      browserHistory.push(`/contacts/${targetId}`);
     }
   },
 }));

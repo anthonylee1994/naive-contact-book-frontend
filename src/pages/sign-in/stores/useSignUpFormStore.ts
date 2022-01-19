@@ -16,5 +16,6 @@ export const useSignUpFormStore = create<SignUpFormStore>((set, get) => ({
     e.preventDefault();
     const { name } = get();
     useAuthStore.getState().signUp(name);
+    set({ name: "" });
   },
 }));
