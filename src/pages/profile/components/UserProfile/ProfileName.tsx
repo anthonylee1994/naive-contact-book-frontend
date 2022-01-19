@@ -1,4 +1,4 @@
-import { Button, Flex, Icon, Text } from "@chakra-ui/react";
+import { Button, Flex, Icon, Skeleton, Text } from "@chakra-ui/react";
 import React from "react";
 import { FaPen } from "react-icons/fa";
 import { useAuthStore } from "stores/useAuthStore";
@@ -9,17 +9,20 @@ export const ProfileName = React.memo(() => {
   const [isModalVisible, setModalVisible] = React.useState(false);
   const name = useAuthStore((state) => state.user?.name || "");
   const updateName = useProfileStore((state) => state.updateName);
+  const updatingName = useProfileStore((state) => state.updatingName);
 
   return (
-    <Flex flexDirection="column" pl={4} pr={4} alignItems="center">
-      <Text
-        wordBreak="break-all"
-        whiteSpace="break-spaces"
-        fontSize={{ base: "2xl", md: "3xl" }}
-        textAlign="center"
-      >
-        {name}
-      </Text>
+    <Flex w="full" flexDirection="column" pl={4} pr={4} alignItems="center">
+      <Skeleton borderRadius="md" isLoaded={!updatingName}>
+        <Text
+          wordBreak="break-all"
+          whiteSpace="break-spaces"
+          fontSize={{ base: "2xl", md: "3xl" }}
+          textAlign="center"
+        >
+          {name}
+        </Text>
+      </Skeleton>
       <Button
         mt={{ base: 2, md: 3 }}
         mb={{ base: 0, md: 1 }}

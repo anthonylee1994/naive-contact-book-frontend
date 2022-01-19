@@ -6,6 +6,7 @@ import { useAuthStore } from "./useAuthStore";
 
 interface ProfileStore {
   editMode: boolean;
+  updatingName: boolean;
   updatingAvatar: boolean;
   updatingUserContacts: boolean;
   removeAvatar: () => void;
@@ -17,6 +18,7 @@ interface ProfileStore {
 
 export const useProfileStore = create<ProfileStore>((set) => ({
   editMode: false,
+  updatingName: false,
   updatingAvatar: false,
   updatingUserContacts: false,
   setEditMode: (editMode) => set(() => ({ editMode })),
@@ -46,9 +48,13 @@ export const useProfileStore = create<ProfileStore>((set) => ({
   },
   async updateName(name) {
     try {
+      set({ updatingName: true });
       const response = await apiClient.mePut(name, undefined, undefined);
       useAuthStore.getState().setUser(response.data);
-    } catch (error) {}
+      set({ updatingName: false });
+    } catch (error) {
+      set({ updatingName: false });
+    }
   },
   async updateUserContacts(contacts) {
     try {

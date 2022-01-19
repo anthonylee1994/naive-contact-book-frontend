@@ -4,6 +4,7 @@ import { browserHistory } from "utils/browserHistory";
 import create from "zustand";
 
 interface FriendStore {
+  updatingTag: boolean;
   fetching: boolean;
   deleting: boolean;
   friend: InlineResponse200 | null;
@@ -14,6 +15,7 @@ interface FriendStore {
 }
 
 export const useFriendStore = create<FriendStore>((set, get) => ({
+  updatingTag: false,
   fetching: false,
   deleting: false,
   friend: null,
@@ -23,11 +25,14 @@ export const useFriendStore = create<FriendStore>((set, get) => ({
     }
 
     try {
+      set({ updatingTag: true });
       const response = await apiClientAxios.put(`/friendships/${id}`, {
         tags_attributes: [{ value: tagName }],
       });
-      set({ friend: response.data });
-    } catch (error) {}
+      set({ friend: response.data, updatingTag: false });
+    } catch (error) {
+      set({ updatingTag: false });
+    }
   },
   removeTag: async (id, tagId) => {
     if (!id) {
@@ -35,10 +40,11 @@ export const useFriendStore = create<FriendStore>((set, get) => ({
     }
 
     try {
+      set({ updatingTag: true });
       const response = await apiClientAxios.put(`/friendships/${id}`, {
         tags_attributes: [{ id: tagId, _destroy: true }],
       });
-      set({ friend: response.data });
+      set({ friend: response.data, updatingTag: false });
     } catch (error) {}
   },
   fetch: async (id) => {

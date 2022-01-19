@@ -10,7 +10,7 @@ interface Props {
 
 export const ContactInfoList = React.memo<Props>(({ items }) => {
   return (
-    <Flex pt={4} pb={6} pl={4} pr={4} width="full">
+    <Flex w="full" pt={4} pb={6} pl={4} pr={4} width="full">
       <Flex width="full" flexDirection="column">
         {sortBy(items, ["display_order"]).map((item, index) => {
           return <Item item={item} key={index} />;

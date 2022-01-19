@@ -18,7 +18,7 @@ export const LogoutButton = React.memo(() => {
       aria-label="back"
       position="fixed"
       variant="ghost"
-      left={2}
+      left={{ base: 2, md: 4 }}
       icon={<Icon as={FaPowerOff} />}
       onClick={() => navigate("/sign-out")}
     />

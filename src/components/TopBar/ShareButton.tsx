@@ -22,7 +22,7 @@ export const ShareButton = React.memo(() => {
         position="fixed"
         variant="outline"
         borderWidth={2}
-        right={2}
+        right={{ base: 2, md: 4 }}
         icon={<Icon as={FaQrcode} />}
         onClick={openModal}
       />

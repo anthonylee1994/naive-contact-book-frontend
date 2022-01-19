@@ -19,13 +19,14 @@ export const ProfileAvatar = React.memo(() => {
   const btnRef = React.useRef<HTMLButtonElement>(null);
   const removeAvatar = useProfileStore((state) => state.removeAvatar);
   const uploadAvatar = useProfileStore((state) => state.uploadAvatar);
+  const updatingAvatar = useProfileStore((state) => state.updatingAvatar);
   const inputRef = React.useRef<HTMLInputElement>(null);
   const avatarUrl = useAuthStore((state) => state.user?.avatar_url);
   const iconButtonSize = useBreakpointValue({ base: "md", md: "lg" });
 
   return (
     <Flex position="relative">
-      <ContactAvatar src={avatarUrl} />
+      <ContactAvatar src={avatarUrl} isLoaded={!updatingAvatar} />
       <IconButton
         size={iconButtonSize}
         variant="solid"

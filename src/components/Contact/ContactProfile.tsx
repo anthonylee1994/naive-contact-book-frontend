@@ -22,13 +22,19 @@ export const ContactProfile = React.memo<Props>(({ friendship }) => {
   const userContacts = friendship.target?.user_contacts ?? [];
 
   return (
-    <Flex margin="0 auto" maxW={600} flexDirection="column" alignItems="center">
-      <ContactAvatar src={avatarUrl} />
+    <Flex
+      margin="0 auto"
+      w="full"
+      maxW={600}
+      flexDirection="column"
+      alignItems="center"
+    >
+      <ContactAvatar src={avatarUrl} isLoaded={!!avatarUrl} />
       <ContactName name={name} />
       <EditableContactTags tags={tags} />
       <ContactInfoList items={userContacts} />
 
-      <Flex width="full" mt={-1} pl={4} pr={4} pb={4}>
+      <Flex width="full" mt={-1} pl={4} pr={4} pb={6}>
         <UnfriendButton />
       </Flex>
     </Flex>

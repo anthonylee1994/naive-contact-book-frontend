@@ -18,7 +18,7 @@ export const BackButton = React.memo(() => {
       position="fixed"
       variant="ghost"
       size={size}
-      left={2}
+      left={{ base: 2, md: 4 }}
       icon={<Icon as={FaArrowLeft} />}
       onClick={() => navigate("/contacts")}
     />

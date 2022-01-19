@@ -11,6 +11,7 @@ export const Container = React.memo<Props>(({ children, onClick }) => {
     <Flex
       onClick={onClick}
       cursor="pointer"
+      userSelect="none"
       transition="100ms ease-in-out"
       bgColor="gray.700"
       _active={{ bgColor: "gray.600" }}

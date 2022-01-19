@@ -1,23 +1,20 @@
 import React from "react";
 import { Avatar } from "components/Avatar";
-import { useBreakpointValue } from "@chakra-ui/react";
+import { Flex, Skeleton, useBreakpointValue } from "@chakra-ui/react";
 
 interface Props {
+  isLoaded?: boolean;
   src?: string | null | undefined;
 }
 
-export const ContactAvatar = React.memo<Props>(({ src }) => {
+export const ContactAvatar = React.memo<Props>(({ src, isLoaded }) => {
   const size = useBreakpointValue({ base: "128px", sm: "135px", md: "256px" });
 
   return (
-    <Avatar
-      mt={6}
-      ml={4}
-      mr={4}
-      mb={3}
-      width={size}
-      height={size}
-      src={src ?? undefined}
-    />
+    <Flex mt={6} ml={4} mr={4} mb={3}>
+      <Skeleton borderRadius="full" isLoaded={isLoaded}>
+        <Avatar width={size} height={size} src={src ?? undefined} />
+      </Skeleton>
+    </Flex>
   );
 });
