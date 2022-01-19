@@ -1,5 +1,5 @@
 import React from "react";
-import QrReader from "react-qr-reader";
+import QrReader from "react-qr-scanner";
 import { useShareContactStore } from "stores/useShareContactStore";
 
 export const QRCodeScanner = React.memo(() => {
@@ -8,10 +8,10 @@ export const QRCodeScanner = React.memo(() => {
   return (
     <QrReader
       delay={300}
-      onError={(err) => {
+      onError={(err: any) => {
         alert(err);
       }}
-      onScan={(data) => {
+      onScan={(data: any) => {
         if (data) {
           const [targetId, otpCode] = String(data ?? "").split(";");
           addFriend(Number(targetId), otpCode);
