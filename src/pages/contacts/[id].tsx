@@ -20,10 +20,7 @@ export const ContactInfo = React.memo(() => {
   }, [fetch, id]);
 
   return (
-    <Container
-      filter={fetching ? "blur(5px)" : undefined}
-      transition="100ms ease-in-out"
-    >
+    <Container transition="100ms ease-in-out">
       {fetching ? (
         <Progress colorScheme="green" height={1} isIndeterminate />
       ) : friend ? (
