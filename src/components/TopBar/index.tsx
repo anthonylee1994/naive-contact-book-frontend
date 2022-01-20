@@ -4,6 +4,8 @@ import { RiContactsBook2Fill } from "react-icons/ri";
 import { BackButton } from "./BackButton";
 import { ShareButton } from "./ShareButton";
 import { LogoutButton } from "./LogoutButton";
+import { RefreshListButton } from "./RefreshListButton";
+import { RefreshProfileButton } from "./RefreshProfileButton";
 
 export const TopBar = React.memo(() => {
   return (
@@ -20,6 +22,8 @@ export const TopBar = React.memo(() => {
       justifyContent="center"
       boxShadow="0 0 10px 0 rgba(0,0,0,0.5)"
     >
+      <RefreshListButton />
+      <RefreshProfileButton />
       <LogoutButton />
       <BackButton />
       <ShareButton />

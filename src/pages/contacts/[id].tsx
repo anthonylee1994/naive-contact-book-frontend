@@ -1,9 +1,10 @@
+import React from "react";
 import { Progress } from "@chakra-ui/react";
 import { ContactProfile } from "components/Contact/ContactProfile";
 import { Container } from "components/Container";
-import React from "react";
 import { useParams } from "react-router-dom";
 import { useFriendStore } from "stores/useFriendStore";
+import { NoProfile } from "components/EmptyPlaceholders/NoProfile";
 
 export const ContactInfo = React.memo(() => {
   const { id } = useParams<{ id: string }>();
@@ -19,11 +20,16 @@ export const ContactInfo = React.memo(() => {
   }, [fetch, id]);
 
   return (
-    <Container>
+    <Container
+      filter={fetching ? "blur(5px)" : undefined}
+      transition="100ms ease-in-out"
+    >
       {fetching ? (
         <Progress colorScheme="green" height={1} isIndeterminate />
+      ) : friend ? (
+        <ContactProfile friendship={friend} />
       ) : (
-        <ContactProfile friendship={friend!} />
+        <NoProfile />
       )}
     </Container>
   );

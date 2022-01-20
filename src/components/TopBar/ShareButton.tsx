@@ -10,7 +10,7 @@ export const ShareButton = React.memo(() => {
   const size = useBreakpointValue({ base: "md", md: "lg" });
   const openModal = useShareContactStore((state) => state.openModal);
 
-  if (!pathname.startsWith("/profile")) {
+  if (/\/contacts\/\d+\/?$/.test(pathname)) {
     return null;
   }
 
