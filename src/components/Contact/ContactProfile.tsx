@@ -5,6 +5,7 @@ import { ContactInfoList } from "components/Contact/ContactInfoList";
 import { ContactName } from "components/Contact/ContactName";
 import React from "react";
 import { EditableContactTags } from "./EditableContactTags";
+import { ExportButton } from "./ExportButton";
 import { UnfriendButton } from "./UnfriendButton";
 
 interface Props {
@@ -28,14 +29,16 @@ export const ContactProfile = React.memo<Props>(({ friendship }) => {
       maxW={600}
       flexDirection="column"
       alignItems="center"
+      mb={{ base: 5, md: 10 }}
     >
       <ContactAvatar src={avatarUrl} isLoaded />
       <ContactName name={name} />
       <EditableContactTags tags={tags} />
       <ContactInfoList items={userContacts} />
 
-      <Flex width="full" mt={-1} pl={4} pr={4} pb={6}>
-        <UnfriendButton />
+      <Flex flexDirection="column" width="full" mt={-1} pl={4} pr={4} pb={6}>
+        <ExportButton friendship={friendship} />
+        <UnfriendButton mt={4} />
       </Flex>
     </Flex>
   );

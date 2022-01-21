@@ -2578,6 +2578,11 @@
   resolved "https://registry.yarnpkg.com/@types/trusted-types/-/trusted-types-2.0.2.tgz#fc25ad9943bcac11cceb8168db4f275e0e72e756"
   integrity sha512-F5DIZ36YVLE+PN+Zwws4kJogq47hNgX3Nx6WyDJ3kcplxyke3XIzB8uK5n/Lpm1HBsbGzd6nmGehL8cPekP+Tg==
 
+"@types/vcards-js@^2.10.2":
+  version "2.10.2"
+  resolved "https://registry.yarnpkg.com/@types/vcards-js/-/vcards-js-2.10.2.tgz#d5cda40d708132edf0d9f150a0897c92ca2e49d4"
+  integrity sha512-GWWAsAwQhWlZP0meGEbB0RHpyCn8ckwDohsznxhpRlb5jWL9atirM8Vknn8oJfOcQzE7x3oq5GtgFKdSvvWl1g==
+
 "@types/warning@^3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@types/warning/-/warning-3.0.0.tgz#0d2501268ad8f9962b740d387c4654f5f8e23e52"
@@ -9559,6 +9564,11 @@ vary@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
+
+vcard-creator@^0.4.2:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/vcard-creator/-/vcard-creator-0.4.2.tgz#0998ef043fedb1f751cbe23dcf466fb993e13903"
+  integrity sha512-MnIxp/mNdlrYhRZgjZsYGVj17CgXEqQosb2/mYBcAvEu5gPH75U03gMsD33VnFZO2hVDLrnor1U8tqtN5rs54Q==
 
 w3c-hr-time@^1.0.2:
   version "1.0.2"

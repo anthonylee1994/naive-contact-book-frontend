@@ -7,7 +7,7 @@ import { CopySecretButton } from "./CopySecretButton";
 
 export const UserProfile = React.memo(() => {
   return (
-    <Flex flexDirection="column" alignItems="center">
+    <Flex flexDirection="column" alignItems="center" mb={{ base: 5, md: 10 }}>
       <ProfileAvatar />
       <ProfileName />
       <UserContactList />
