@@ -11,7 +11,9 @@ export const WhatsAppContact = React.memo<Props>(({ phoneNumber }) => {
   return (
     <Container onClick={() => window.open(`https://wa.me/${phoneNumber}`)}>
       <Icon color="whatsapp.400" fontSize="2xl" as={FaWhatsapp} />
-      <Text ml={4}>{phoneNumber}</Text>
+      <Text wordBreak="break-all" whiteSpace="break-spaces" ml={4}>
+        {phoneNumber}
+      </Text>
     </Container>
   );
 });

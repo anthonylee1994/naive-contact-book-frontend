@@ -11,7 +11,9 @@ export const TelegramContact = React.memo<Props>(({ username }) => {
   return (
     <Container onClick={() => window.open(`https://t.me/${username}`)}>
       <Icon color="telegram.400" fontSize="2xl" as={FaTelegram} />
-      <Text ml={4}>{username}</Text>
+      <Text wordBreak="break-all" whiteSpace="break-spaces" ml={4}>
+        {username}
+      </Text>
     </Container>
   );
 });
