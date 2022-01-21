@@ -1,6 +1,5 @@
 import React from "react";
 import { Button, ButtonProps, Icon } from "@chakra-ui/react";
-import { useFriendStore } from "stores/useFriendStore";
 import { FaAddressCard } from "react-icons/fa";
 import { InlineResponse200 } from "api";
 import VCard from "vcard-creator";
@@ -11,8 +10,6 @@ interface Props extends ButtonProps {
 
 export const ExportButton = React.memo<Props>(
   ({ friendship, ...otherProps }) => {
-    console.log(friendship);
-
     const onExport = () => {
       let vCard = new VCard();
       vCard = vCard.addName(undefined, friendship?.target?.name ?? "");
